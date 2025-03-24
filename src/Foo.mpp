@@ -1,6 +1,9 @@
-export module Foo;
+module;
 
-import std;
+#include <type_traits>
+#include <concepts>
+
+export module Foo;
 
 template<typename T, typename ... Args>
 concept EnableCtor = sizeof...(Args) != 1 || (sizeof...(Args) == 1 && !std::same_as<T, typename std::remove_cvref<Args...>::type>);
