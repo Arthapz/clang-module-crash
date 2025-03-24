@@ -31,5 +31,5 @@ inline Foo<T, A>::Foo(Args&&... args) {
 template<class T, bool A>
 template<class... Args>
 inline auto Foo<T, A>::init(Args&&... args) -> void {
-    auto _ = std::make_unique<T>(std::forward<Args>(args)...);
+    auto _ = T { std::forward<Args>(args)... };
 }
